@@ -1,0 +1,38 @@
+@import color
+@import mixin
+@import font
+@import reboot
+@import layout
+@import border
+@import button
+@import tab
+@import banner
+@import card
+@import pagination
+@import dropdown
+@import order
+@import main
+@import destination
+@import static
+@import bradcam
+@import package
+@import table
+@import form
+@import find_accompany
+
+$display: block,none,inline-block,flex
+@each $dis in $display
+     .d-#{$dis}
+          display: $dis
+
+
+@each $dis in $display
+     +respond-to(small)
+          .d-sm-#{$dis}
+               display: $dis !important
+     +respond-to(medium)
+          .d-md-#{$dis}
+               display: $dis
+     +respond-to(large)
+          .d-lg-#{$dis}
+               display: $dis

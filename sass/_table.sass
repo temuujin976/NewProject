@@ -1,0 +1,193 @@
+.table
+     width: 100%
+     border-top: 2px solid #666
+     +my(30px)
+     tr
+          &:not(.no-border)
+               border-bottom: 1px solid #ccc
+
+     thead
+          background: #f6f6f6
+          border-bottom: 1px solid #ccc
+          th
+               color: #4c4c4c
+               font-weight: 400
+               padding: 17px 0
+               +respond-to-down(small)
+                    display: none
+     tbody
+          td,th
+               padding: 5px 16px
+               text-align: center
+               a
+                    color: black
+
+          th
+               background:  #f6f6f6
+               text-align: left
+               color: #4c4c4c
+               font-weight: 400
+     &.bordered
+          tr
+               border-left: 1px solid #ccc
+               border-right:  1px solid #ccc
+     .tit
+          width: 60%
+          +respond-to-down(large)
+               width: 45%
+          +respond-to-down(medium)
+               width: 70%
+          +respond-to-down(small)
+               width: 80%
+          a
+               display: block
+               overflow: hidden
+               text-overflow: ellipsis
+               white-space: nowrap
+               +respond-to(large)
+                    width: 450px
+               +respond-to-down(large)
+                    width: 450px
+               +respond-to-down(medium)
+                    width: 420px
+               +respond-to-down(small)
+                    width: 185px
+     .dat
+          width: 15%
+          +respond-to-down(large)
+               width: 25%
+          +respond-to-down(medium)
+               width: 30%
+          +respond-to-down(small)
+               width: 20%
+     .com
+          width: 10%
+          +respond-to-down(large)
+               width: 5%
+          +respond-to-down(medium)
+               display: none
+     .sta
+          width: 15%
+          +respond-to-down(large)
+               width: 25%
+          +respond-to-down(medium)
+               display: none
+     td.dat,td.com
+          opacity: 0.8
+.f
+
+     &_table
+          border-top: 2px solid #666
+          display: flex
+          flex-wrap: wrap
+          font-size: 14px
+          &.bordered
+               border-right: 1px solid #ccc
+               border-left: 1px solid #ccc
+          &>.f_head,&>.f_cell
+               padding: 22px 16px
+               text-align: left
+               border-bottom: 1px solid #ccc
+               +respond-to-down(small)
+                    padding: 10px 8px
+          &>.f_head
+               background: #f6f6f6
+               +flex(18%)
+               +respond-to-down(small)
+                    +flex(24%)
+                    font-size: 14px !important
+          &>.f_cell
+               color: #808080
+               +flex(82%)
+               +respond-to-down(small)
+                    +flex(76%)
+                    font-size: 14px !important
+               &.sm
+                    +flex(32%)
+                    +respond-to-down(small)
+                         +flex(76%)
+                         font-size: 14px
+     &_col_2
+          flex: 0 0 (100%/3)
+          max-width: (100%/3)
+          padding: 10px
+     &_col_1
+          padding: 10px
+          flex: 0 0 (100%/6)
+          max-width: (100%/6)
+     &_row,&_top
+          display: flex
+          flex: 0 0 100%
+          max-width: 100%
+          flex-wrap: wrap
+     &_top
+          &>div
+               background: #f6f6f6
+               border-bottom: 1px solid #ccc
+               color: #4c4c4c
+               font-weight: 400
+               padding: 17px 0
+               text-align: center
+          +respond-to-down(small)
+               display: none
+
+     &_row
+          align-items: center
+          position: relative
+          &:not(.inner)
+               +py(20px)
+               border-bottom: 1px solid #e6e6e6
+          +respond-to-down(small)
+
+               &:not(.inner)
+                    +py(0px)
+                    border-top: 2px solid #666
+                    margin-bottom: 16px
+
+          &.inner
+               +mx(-10px)
+               max-width: unset
+               .f-1,.f-2,.f-3,.f-4,.f-5,.f-6,.f-7,.f-8,.f-9,.f-10,.f-11,.f-12,.f-sm-1,.f-sm-2,.f-sm-3,.f-sm-4,.f-sm-5,.f-sm-6,.f-sm-7,.f-sm-8,.f-sm-9,.f-sm-10,.f-sm-11,.f-sm-12
+                    +respond-to-down(small)
+                         +py(5px)
+     &-auto
+          width: auto
+          max-width: none
+          flex: 0 0 auto
+          padding: 10px
+
+
+     @for $i from 12 to 0
+          &-#{$i}
+               +flex(100%/12 * $i)
+               max-width: 100%/12 * $i
+
+     @for $i from 12 to 0
+          &-#{$i},&-sm-#{$i}
+               position: relative
+               width: 100%
+               padding: 10px
+               //+py(20px)
+          +respond-to(small)
+               &-sm-#{$i}
+                    +flex(100%/12 * $i)
+                    max-width: 100%/12 * $i
+[data-table]
+     +respond-to-down(small)
+          padding: 0
+          display: flex
+          align-items: center
+          position: relative
+          padding: 10px
+          padding-left: 100px
+          &::before
+               position: absolute
+               left: 0
+               top: 0
+               height: 100%
+               padding: 10px
+               content: attr(data-table)
+               color: #808080
+               background: #f6f6f6
+               width: 80px
+               margin-right: 20px

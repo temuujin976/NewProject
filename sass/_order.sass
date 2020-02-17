@@ -1,0 +1,7 @@
+
+@for $i from 0 to 7
+     .order-#{$i}
+          order: $i
+     +respond-to-down(small)
+          .order-sm-#{$i}
+               order: $i

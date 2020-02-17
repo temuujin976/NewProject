@@ -1,0 +1,465 @@
+textarea
+     border: 1px solid #c2c2c2
+     resize: none
+     padding: 10px
+     &:focus
+          outline: none
+     &::placeholder
+          color: #b2b2b2
+
+.input_separator
+     +mx(16px)
+     +respond-to-down(small)
+          +mx(8px)
+.form-row
+     display: flex
+     align-items: flex-start
+     +mx(-4px)
+     margin-bottom: 12px
+
+     @for $i from 12 to 0
+          .col-#{$i},.col-sm-#{$i},.col-md-#{$i},.col-lg-#{$i}
+               +px(4px)
+     .col
+          +px(4px)
+.required
+     position: relative
+     +respond-to-down(small)
+          display: inline-block
+          height: 36px
+          width: 5px
+     &::before
+          position: absolute
+          content: ''
+          width: 11px
+          height: 7px
+          border: 2px solid $primary
+          border-top: 0
+          border-right: 0
+          left: -6px
+          top: 50%
+          transform: translateY(-50%) rotate(-45deg)
+          +respond-to-down(small)
+               left: -14px
+
+.form_section
+     +py(1rem)
+     border-bottom: 1px solid #ccc
+     margin-bottom: 1.5rem
+.form_head
+     display: flex
+     justify-content: space-between
+     align-items: center
+     border-bottom: 1px solid #ccc
+     padding-bottom: 16px
+     margin-bottom: 16px
+     p
+          font-size: 18px
+          color: #000
+     h5
+          margin: 0
+          font-size: 16px
+          color: #808080
+          position: relative
+          font-weight: 400
+          &::before
+               position: absolute
+               content: ''
+               width: 11px
+               height: 7px
+               border: 2px solid $primary
+               border-top: 0
+               border-right: 0
+               left: -6px
+               top: 50%
+               transform: translateY(-50%) translateX(-100%) rotate(-45deg)
+
+.form-label
+     padding: 12px 13px 12px 0
+     font-size: 16px
+     line-height: 1
+     display: inline-block
+     color: #808080
+.form-control
+     height: calc(1em + (12px * 2) + 2px)
+     font-size: 16px
+     line-height: 1
+     color: #000
+     padding: 12px 13px
+     border: 1px solid #b3b3b3
+     display: block
+     width: 100%
+     &:focus
+          outline: none
+     &::placeholder
+          color: #b2b2b2
+     &:disabled
+          background: #f6f6f6
+          color: #b2b2b2
+          border-color: #e6e6e6
+          cursor: not-allowed
+     &.no-border:not(:disabled)
+          border-color: #fff
+     &.small
+          max-width: 180px
+.input-wrapper
+     position: relative
+     input[type=search]
+          appearance: none
+          zoom: 1
+     .search
+          position: absolute
+          right: 11px
+          background-position: center
+          background-repeat: no-repeat
+          +center_v
+          width: 23.5px
+          height: 23.5px
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='23.5px' height='23.5px'%3E%3Cpath fill-rule='evenodd' stroke-width='1px' stroke='rgb(102, 102, 102)' fill-opacity='0' fill='rgb(34, 34, 34)' d='M11.500,3.500 C15.918,3.500 19.500,7.082 19.500,11.500 C19.500,15.918 15.918,19.500 11.500,19.500 C7.082,19.500 3.500,15.918 3.500,11.500 C3.500,7.082 7.082,3.500 11.500,3.500 Z'/%3E%3Cpath fill-rule='evenodd' fill='rgb(102, 102, 102)' d='M16.136,16.843 L16.843,16.136 L23.500,22.792 L22.793,23.499 L16.136,16.843 Z'/%3E%3C/svg%3E%0A")
+
+.input-number
+     display: flex
+     position: relative
+     height: 30px
+     padding: 0 38px
+     max-width: 140px
+     &:not([disabled])
+          &:hover
+               input,.subtract,.add
+                    border-color: $primary
+               .subtract,.add
+                    &::after,&::before
+                         background: $primary
+     &[disabled]
+          input,.subtract,.add
+               cursor: not-allowed
+     input
+          max-width: 100%
+          flex: 1
+          border: none
+          border-bottom: 1px solid #999
+          appearance: textfield
+          text-align: center
+          background: #fff
+          &::-webkit-inner-spin-button
+               display: none
+          &:focus
+               outline: none
+
+     .subtract,.add
+          position: absolute
+          top: 0
+          flex: 0 0 30px
+          max-width: 30px
+          background: #fff
+          display: inline-block
+          cursor: pointer
+          +size(30px)
+          border: 1px solid #999
+          border-radius: 5rem
+          &:focus
+               outline: none
+          &::after,&::before
+               height: 1px
+               width: 13px
+               background: #999
+               content: ''
+               display: inline-block
+               left: 50%
+               top: 50%
+               transform: translateX(-50%) translateY(-50%)
+               position: absolute
+     .subtract
+          left: 0
+     .add
+          right: 0
+     .add::after
+          transform: translateX(-50%) translateY(-50%) rotate(90deg)
+
+
+// select
+.no-border
+     &+.select-styled
+          border-color: #fff
+          &.active
+               border-color: #b3b3b3
+     &:disabled
+          &+.select-styled
+               color: #b2b2b2
+               &::after
+                    border-color: #ccc transparent transparent transparent
+.select
+     position: relative
+.select-hidden
+     display: none
+     &:disabled
+          &+.select-styled
+               cursor: not-allowed
+.select-styled
+     font-size: 16px
+     line-height: 1
+     color: #b2b2b2
+     padding: 12px 13px
+     border: 1px solid #b3b3b3
+     display: block
+     width: 100%
+     cursor: pointer
+     position: relative
+     background: #fff
+     &.selected
+          color: #000
+     &::after
+          position: absolute
+          right: 12px
+          +center_v
+          height: 100%
+          width: 0
+          height: 0
+          content: ''
+          border-style: solid
+          border-width: 5px 5px 0 5px
+          border-color: #999 transparent transparent transparent
+     &.active
+          color: #b2b2b2
+          &::after
+               transform: rotate(180deg)
+.select-options
+     display: none
+     position: absolute
+     top: 100%
+     right: 0
+     left: 0
+     z-index: 999
+     margin: 0
+     padding: 0
+     list-style: none
+     background-color: #fff
+     color: #737373
+     border: 1px solid #b3b3b3
+     border-top: 0
+     li
+          margin: 0
+          padding: 12px 13px
+          transition: all 0.15s ease-in
+          cursor: pointer
+          &:hover
+               color: $primary_text
+          &[rel='hide']
+               display: none
+          &.with-image
+               display: flex
+               align-items: center
+               &:hover
+                    background: #f2f2f2
+                    .option-wrap
+                         p
+                              color: $primary_text
+               .img-wrapper
+                    position: relative
+                    flex: 0 0 164px
+                    max-width: 164px
+                    padding-top: 25%
+                    line-height: 0
+                    overflow: hidden
+                    border: 1px solid #e6e6e6
+                    img
+                         +img-center
+                         width: 100%
+               .option-wrap
+                    padding: 13px
+                    p
+                         color: #737373
+                         &.title
+                              font-size: 16px
+                         &.detail
+                              font-size: 14px
+
+
+
+input[type=radio]
+     &.radio-text
+          display: none
+          &+span
+               display: inline-flex
+               align-items: center
+               justify-content: center
+               font-size: 16px
+               border: 1px solid #8c8c8c
+               color: #999
+               background: #fff
+               padding: 10px
+               min-width: 100px
+               transition: background .15s cubic-bezier(.47,.03,.49,1.38)
+               cursor: pointer
+               text-align: center
+               &::after
+                    content: attr(data-text)
+          &:checked+span
+               color: #fff
+               background: #8c8c8c
+          &:disabled+span
+               opacity: .42
+               cursor: not-allowed
+     &.radio
+          display: none
+          &+span
+               display: inline-block
+               position: relative
+               padding-left: 30px
+               color: #737373
+               &:not(:disabled)
+                    cursor: pointer
+               &::before,&::after
+                    position: absolute
+                    +center_v
+                    content: ''
+                    border-radius: 5rem
+                    transition: all .15s cubic-bezier(.47,.03,.49,1.38)
+               &::before
+                    left: 0
+                    +size(22px)
+                    background: $default_disabled
+               &::after
+                    background: #fff
+                    left: 5px
+                    +size(12px)
+          &:checked
+               &+span
+                    &::before
+                         background: $primary
+          &:disabled
+               &+span
+                    opacity: .42
+                    cursor: not-allowed
+
+input[type=checkbox]
+     &.checkbox
+          display: none
+          &+span
+               display: inline-block
+               position: relative
+               padding-left: 30px
+               color: #737373
+               //margin-bottom: 12px
+               &:not(:disabled)
+                    cursor: pointer
+               &::before,&::after
+                    position: absolute
+                    +center_v
+                    content: ''
+                    transition: all .15s cubic-bezier(.47,.03,.49,1.38)
+               &::before
+                    left: 0
+                    +size(20px)
+                    background: $light
+               &::after
+                    width: 10px
+                    height: 7px
+                    border-left: 3px solid white
+                    border-bottom: 3px solid white
+                    left: 5px
+                    transform: translateY(-5px) rotate(-45deg)
+          &:checked+span::before
+               background: $primary
+          &:disabled+span
+               cursor: not-allowed
+               opacity: .42
+     &.dropdown_toggle
+          display: none
+          &+span
+               display: inline-block
+               position: relative
+               padding-left: 30px
+               color: #737373
+               //margin-bottom: 12px
+               &:not(:disabled)
+                    cursor: pointer
+               &::before
+                    position: absolute
+                    top: 50%
+                    transform: translateY(-50%) rotate(-45deg)
+                    content: ''
+                    border-right: 2px solid #959595
+                    border-bottom:  2px solid #959595
+                    +size(8px)
+                    right: 0
+                    transition: all .15s cubic-bezier(.47,.03,.49,1.38)
+               &:empty
+                    height: 20px
+          &:checked
+               &+span
+                    &::before
+                         transform: translateY(-50%) rotate(45deg)
+          &:disabled
+               &+span
+                    opacity: .42
+                    cursor: not-allowed
+.input-group
+     position: relative
+     .prepend
+          position: absolute
+          left: 0
+          top: 0
+          height: 100%
+          width: 40px
+          display: flex
+          align-items: center
+          justify-content: center
+          &::before
+               content: ''
+               background-position: center
+               background-repeat: no-repeat
+          &.user::before
+               width: 14px
+               height: 17px
+               background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='14px' height='17px'%3E%3Cpath fill-rule='evenodd' fill='rgb(178, 178, 178)' d='M-0.000,17.000 L-0.000,16.000 C-0.000,12.340 2.613,9.000 7.000,9.000 C11.387,9.000 14.000,12.340 14.000,16.000 L14.000,17.000 L-0.000,17.000 ZM7.000,10.000 C3.066,10.000 1.000,12.794 1.000,16.000 L13.000,16.000 C13.000,12.794 10.933,10.000 7.000,10.000 ZM7.000,8.000 C4.717,8.000 3.000,6.287 3.000,4.000 C3.000,1.713 4.717,-0.000 7.000,-0.000 C9.282,-0.000 11.000,1.713 11.000,4.000 C11.000,6.287 9.282,8.000 7.000,8.000 ZM7.000,1.000 C5.142,1.000 4.000,2.138 4.000,4.000 C4.000,5.861 5.142,7.000 7.000,7.000 C8.858,7.000 10.000,5.861 10.000,4.000 C10.000,2.138 8.858,1.000 7.000,1.000 Z'/%3E%3C/svg%3E%0A")
+          &.password::before
+               width: 12px
+               height: 17px
+               background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='12px' height='17px'%3E%3Cpath fill-rule='evenodd' fill='rgb(178, 178, 178)' d='M-0.000,17.000 L-0.000,8.000 L1.000,8.000 L1.000,5.000 C1.000,2.341 3.357,-0.000 6.000,-0.000 C8.641,-0.000 11.000,2.341 11.000,5.000 L11.000,8.000 L12.000,8.000 L12.000,17.000 L-0.000,17.000 ZM10.000,5.000 C10.000,2.868 8.117,1.000 6.000,1.000 C3.882,1.000 2.000,2.868 2.000,5.000 L2.000,8.000 L10.000,8.000 L10.000,5.000 ZM11.000,8.999 L1.000,8.999 L0.877,16.044 L11.000,16.000 L11.000,8.999 ZM6.118,10.231 C6.696,10.231 7.165,10.702 7.165,11.284 C7.165,11.692 6.932,12.041 6.596,12.216 L6.596,13.965 L5.639,13.965 L5.639,12.216 C5.303,12.042 5.070,11.692 5.070,11.284 C5.070,10.702 5.539,10.231 6.118,10.231 Z'/%3E%3C/svg%3E%0A")
+     input
+          padding-left: 40px
+.file-wrapper
+     display: flex
+     position: relative
+     input[type="file"]
+          width: 100%
+          height: 100%
+          opacity: 0
+          zoom: 1
+          position: absolute
+          top: 0
+          left: 0
+          z-index: 999
+          display: block
+     span
+          padding: 12px 13px
+          border: 1px solid #b3b3b3
+          flex-grow: 1
+          margin-right: 1rem
+          line-height: 1
+          white-space: nowrap
+          overflow: hidden
+          text-overflow: ellipsis
+     button
+
+
+
+.popover
+     font-size: 12px
+     padding: 10px
+     position: absolute
+     background: #fff
+     box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.06)
+     transform: translateX(-50%)
+     &::after
+          position: absolute
+          content: ''
+          width: 0
+          height: 0
+          border-style: solid
+          border-width: 0 10px 10px 10px
+          border-color: transparent transparent #fff transparent
+          left: 50%
+          top: 0
+          transform: translateX(-50%) translateY(-100%)

@@ -1,0 +1,71 @@
+.main_banner
+     height: 400px
+     .swiper-slide
+          background-position: center
+          background-repeat: no-repeat
+          background-size: cover
+     .pagination_wrapper
+          position: absolute
+          bottom: 20px
+          left: 0
+          width: 100%
+          z-index: 1
+     .pagination
+          display: flex
+          justify-content: flex-end
+          .swiper-pagination-bullet
+               +size(8px)
+               opacity: .24
+               background: transparent
+               border: 2px solid white
+               box-sizing: content-box
+               &-active
+                    opacity: .5
+                    background: white
+               &:not(:first-child)
+                    margin-left: 16px
+.swiper-slide
+     height: auto !important
+
+.product_slider
+     margin-top: 32px
+     position: relative
+     .swiper-slide
+          +respond-to-down(small)
+               height: calc((100% - 15px) / 2)
+     .swiper-button
+          &-next,&-prev
+               +respond-to-down(small)
+                    display: none
+.slider
+     $size: 52px
+     &-next,&-prev
+          position: absolute
+          +center_v
+          +size($size)
+          border-radius: 5rem
+          background: #fff
+          display: flex
+          align-items: center
+          justify-content: center
+          cursor: pointer
+          z-index: 1
+          +respond-to-down(small)
+               display: none
+          &::after
+               width: 13px
+               height: 23px
+               content: ''
+               background-position: center
+          &:hover,&:focus
+               outline: none
+               background: #f0f0f0
+
+     &-prev
+          left: -$size/2
+          &::after
+               background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='13px' height='23px'%3E%3Cpath fill-rule='evenodd' fill='rgb(51, 51, 51)' d='M12.207,21.399 L11.500,22.106 L0.893,11.500 L1.600,10.793 L1.601,10.793 L11.493,0.909 L12.207,1.600 L2.307,11.500 L12.207,21.399 Z'/%3E%3C/svg%3E%0A")
+     &-next
+          right: -$size/2
+          &::after
+               background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='13px' height='23px'%3E%3Cpath fill-rule='evenodd' fill='rgb(51, 51, 51)' d='M12.106,11.500 L1.500,22.106 L0.793,21.399 L10.692,11.500 L0.793,1.600 L1.506,0.909 L11.399,10.793 L11.399,10.792 L12.106,11.500 Z'/%3E%3C/svg%3E%0A")

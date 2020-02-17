@@ -1,0 +1,112 @@
+//About Page
+
+.about_page
+     width: 100%
+     +py(120px)
+     +respond-to-down(small)
+          +py(60px)
+     img
+          width: 100%
+     h3
+          font-size: 32px
+          font-weight: 500
+          +respond-to-down(small)
+               font-size: 30px
+               text-align: center
+     h4
+          font-size: 24px
+          font-weight: 400
+          font-family: 'Nanum Myeongjo', serif
+          +respond-to-down(small)
+               font-size: 18px
+               text-align: center
+
+//Contact Page
+
+.contact_page
+     .contact_title
+          text-align: left
+          font-size: 24px
+          font-weight: 500
+          padding-left: 100px
+          font-family: 'Nanum Myeongjo', serif
+          +respond-to-down(large)
+               text-align: center
+               padding-left: 0
+     .flex
+          display: flex
+     input, textarea
+          width: 100%
+          height: 50px
+          border: 1px solid #e5e6e9
+          background-color: transparent
+          font-size: 26px
+          border-radius: 0
+          padding-left: 20px
+          font-family: 'Nanum Pen Script', cursive
+          +respond-to-down(small)
+               font-size: 18px
+          &::placeholder
+               color: $main_text
+               opacity: 0.5
+
+     textarea
+          resize: none
+          +py(10px)
+     .contact_textarea
+          height: 200px
+     .contact_name
+          padding-left: 0
+     .contact_email
+          padding-right: 0
+     div
+          margin-bottom: 30px
+     .contact_address
+          .footer_addmapico
+               align-items: baseline
+          span
+               display: flex
+               align-items: center
+               margin-bottom: 25px
+               i
+                    margin-right: 10px
+               &:hover
+                    color: $primary
+                    opacity: 1
+               h4
+                    +my(0)
+#submit_btn
+     text-align: center
+     background-color: $primary
+     margin-left: auto
+     +py(20px)
+     font-size: 22px
+     width: 100%
+     border: 0
+     +respond-to-down(small)
+          font-size: 18px
+          margin-bottom: 25px
+     &:hover
+          cursor: pointer
+          background-color: $primary_hover
+          color: $default
+          text-decoration: none
+     &:active
+          background-color: $default_hover
+          color: $primary
+.message
+     font-size: 20px
+     display: none
+     padding-top: 10px
+     padding-bottom: 10px
+     background-color: $submit_btn
+     width: 100%
+     margin: auto
+     color: $light
+     margin-bottom: 5px !important
+     text-align: center
+.error
+     color: $primary_text
+     font-size: 18px
+     +respond-to-down(small)
+          font-size: 14px

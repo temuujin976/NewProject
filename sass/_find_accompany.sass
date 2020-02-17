@@ -1,0 +1,120 @@
+.find_accompany_page
+     h3
+          font-family: 'Nanum Pen Script', cursive
+          display: block
+          text-align: center
+          margin-bottom: 0
+          font-size: 38px
+          font-weight: 300
+     button
+          display: flex
+          +mx(auto)
+          margin-bottom: 50px
+.find_accompany_create
+     h3
+          font-family: 'Nanum Pen Script', cursive
+          display: block
+          text-align: center
+          margin-bottom: 0
+          font-size: 38px
+          font-weight: 300
+          +my(40px)
+          +respond-to-down(small)
+               font-size: 34px
+               +px(20px)
+     button
+          display: flex
+          +mx(auto)
+          margin-bottom: 50px
+     .cho_rad
+          +my(20px)
+          text-align: center
+     .form
+          div
+               align-items: center
+               label
+                    text-align: right
+                    font-weight: 500
+                    font-size: 20px
+                    +respond-to-down(medium)
+                         font-size: 16px
+                    +respond-to-down(small)
+                         font-size: 14px
+               input, textarea
+                    width: 100%
+                    +py(15px)
+                    font-family: 'Nanum Pen Script', cursive
+                    font-weight: 100
+                    +respond-to-down(small)
+                         font-size: 18px
+                    &::placeholder
+                         opacity: 0.8
+               textarea
+                    height: 200px
+               span
+                    text-align: center
+          .row
+               +my(20px)
+               select
+                    +px(15px)
+                    height: 65px
+                    option
+                         +py(15px)
+                    #status1
+                         color: green
+                    #status2
+                         color: red
+               .flex
+                    flex-wrap: wrap
+                    label
+                         margin-left: auto
+     button
+          margin-left: auto
+          margin-right: 15px
+
+.find_accompany_desc
+     margin-top: 50px
+     font-size: 24px
+     .table
+          div
+               display: flex
+               align-items: center
+               span,p
+                    +px(15px)
+                    +py(10px)
+                    +my(0)
+                    font-size: 18px
+                    +respond-to-down(small)
+                         +px(8px)
+                         font-size: 14px
+               span
+                    font-weight: 700
+               p
+                    font-weight: 300
+
+          .subject
+               border-top: 2px solid black
+               border-bottom: 1px solid black
+          .destination
+               border-top: 0
+               border-bottom: 1px solid black
+          .tel,.email,.katalk
+               border-top: 1px solid black
+               border-bottom: 0
+               white-space: nowrap
+          .contact
+               +respond-to-down(small)
+                    display: block
+     #submit_btn
+          display: block
+          +mx(auto)
+          width: 15%
+          +respond-to-down(small)
+               width: 30%
+               font-size: 18px
+
+.package_description
+     img
+          width: 100%
+     div
+          line-height: 0.5

@@ -1,0 +1,97 @@
+=respond-to($breakpoint)
+     @if $breakpoint==x-small
+          @media(min-width:576px)
+               @content
+     @else if $breakpoint==small
+          @media(min-width:767px)
+               @content
+     @else if $breakpoint==medium
+          @media(min-width:992px)
+               @content
+     @else if $breakpoint==large
+          @media(min-width:1200px)
+               @content
+
+=respond-to-down($breakpoint)
+     @if $breakpoint==x-small
+          @media(max-width:575px)
+               @content
+     @else if $breakpoint==small
+          @media(max-width:766px)
+               @content
+     @else if $breakpoint==medium
+          @media(max-width:991px)
+               @content
+     @else if $breakpoint==large
+          @media(max-width:1199px)
+               @content
+
+=flexbox
+     display: -webkit-flex
+     display: -ms-flex
+     display: flex
+=flex-wrap
+     flex-wrap: wrap
+=flex($flex)
+     flex: 0 0 $flex
+     max-width: $flex
+=size($size)
+     width: $size
+     height: $size
+=mx($mx)
+     margin-left: $mx
+     margin-right: $mx
+=my($my)
+     margin-top: $my
+     margin-bottom: $my
+
+=px($px)
+     padding-left: $px
+     padding-right: $px
+=py($py)
+     padding-top: $py
+     padding-bottom: $py
+
+=no-select
+     -webkit-user-select: none
+     -moz-user-select: none
+     -ms-user-select: none
+     user-select: none
+=transform($value,$amount)
+     -webkit-transform: $value+unquote("(")#{$amount}unquote(")")
+     transform: $value+unquote("(")#{$amount}unquote(")")
+
+=appearance-none
+     -webkit-appearance: none
+     -moz-appearance: none
+     appearance: none
+=img-center
+     $asd: -50%
+     width: 100%
+     position: absolute
+     top: $asd
+     bottom: $asd
+     left: $asd
+     right: $asd
+     margin: auto
+=bg-center
+     background-position: center center
+     background-size: cover
+     background-repeat: no-repeat
+=bg-contain
+     background-position: center center
+     background-size: contain
+     background-repeat: no-repeat
+=text-ellipsis
+     white-space: nowrap
+     overflow: hidden
+     text-overflow: ellipsis
+=center_v
+     top: 50%
+     transform: translateY(-50%)
+=gradient($color1,$color2)
+     background: $color1
+     background: -moz-linear-gradient(-45deg, $color1 0%, $color2 100%)
+     background: -webkit-linear-gradient(-45deg, $color1 0%,$color2 100%)
+     background: linear-gradient(135deg, $color1 0%,$color2 100%)
+     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$color1}', endColorstr='#{$color2}',GradientType=1 )

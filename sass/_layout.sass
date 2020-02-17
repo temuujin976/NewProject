@@ -1,0 +1,311 @@
+$gap: 30px
+header
+     position: relative
+     z-index: 2
+body
+     &.fixed
+          overflow: hidden
+main
+     background-color: #f2f2f2
+     position: relative
+     display: block
+     section
+          +py(60px)
+          background: #fff
+          // margin-bottom: 12px
+          +respond-to-down(small)
+               +py(30px)
+.container-fluid
+     width: 100%
+     +px($gap/2)
+     +mx(auto)
+.container
+     width: 100%
+     +mx(auto)
+     +px($gap/2)
+     +respond-to(x-small)
+          max-width: 540px
+     +respond-to(small)
+          max-width: 720px
+     +respond-to(medium)
+          max-width: 920px
+     +respond-to(large)
+          max-width: 1170px
+.row
+     +mx(-$gap/2)
+     +flexbox
+     +flex-wrap
+.no-gap
+     +mx(0)
+     @for $i from 12 to 0
+          .col-#{$i},.col-sm-#{$i},.col-md-#{$i},.col-lg-#{$i}
+               +px(0)
+.flex-wrap
+     +flex-wrap
+.flex-fill
+     flex: 1 1 auto !important
+
+.column
+     flex-direction: column
+
+@for $i from 1 to 11
+     .h-#{$i*10}
+          height: $i*10%
+     .w-#{$i*10}
+          width: $i*10%
+@for $i from 12 to 0
+     .col-#{$i},.col-sm-#{$i},.col-md-#{$i},.col-lg-#{$i}
+          position: relative
+          width: 100%
+          +px($gap/2)
+
+     +respond-to(large)
+          .col-lg-#{$i}
+               +flex(100%/12 * $i)
+               max-width: 100%/12 * $i
+     +respond-to(medium)
+          .col-md-#{$i}
+               +flex(100%/12 * $i)
+               max-width: 100%/12 * $i
+     +respond-to(small)
+          .col-sm-#{$i}
+               +flex(100%/12 * $i)
+               max-width: 100%/12 * $i
+
+     .col-#{$i}
+          +flex(100%/12 * $i)
+          max-width: 100%/12 * $i
+.gap_xs
+     +mx(-4px)
+     .col
+          +px(4px)
+
+.col
+     max-width: 100%
+     flex-basis: 0
+     flex-grow: 1
+     +px($gap/2)
+.col-auto
+     width: auto
+     max-width: none
+     flex: 0 0 auto
+     +px($gap/2)
+.flex
+     +flexbox
+.f-sm-row
+     +respond-to(small)
+          flex-direction: row
+
+.flex-1
+     flex: 1
+$align: 'align-center' 'center','align-end' 'flex-end','align-start' 'flex-start','align-stretch' 'stretch'
+@each $pos,$val in $align
+     .#{$pos}
+          align-items: unquote($val)
+
+$justify: 'justify-center' 'center','justify-start' 'flex-start','justify-end' 'flex-end','justify-between' 'space-between','justify-around' 'space-around'
+@each $pos,$val in $justify
+     .#{$pos}
+          justify-content: unquote($val)
+.align-c
+     align-items: center
+.align-c-i
+     align-items: center !important
+
+.category-wrapper
+     $color: $light
+     display: flex
+     flex-wrap: wrap
+     .category
+          flex: 0 0 25%
+          max-width: 25%
+          padding: 20px
+
+          +respond-to-down(small)
+               padding: 15px
+          @for $i from 1 to 9
+               &:nth-child(#{$i}) .category-img
+                    background-image: url(../images/category/pc-#{$i}.png)
+                    +respond-to-down(small)
+                         background-image: url(../images/category/mobile-#{$i}.png)
+     .category-img
+          background-position: center
+          background-repeat: no-repeat
+          position: absolute
+          +img-center
+          +respond-to-down(small)
+               background-size: 30px
+     +respond-to-down(small)
+          .img-wrapper
+               border: 1px solid $light
+               border-radius: 24px
+          .content-wrapper p
+               display: flex
+               justify-content: center
+               text-align: center
+               font-size: 12px
+
+$positions: "t" top,"b" bottom,"l" left,"r" right
+@for $i from 0 to 5
+     @each $position,$value in $positions
+          .m#{$position}-#{$i}
+               margin-#{$value}: .5rem*$i
+          .p#{$position}-#{$i}
+               padding-#{$value}: .5rem*$i
+          .m#{$position}-auto
+               margin-#{$value}: auto
+     .my-#{$i}
+          +my($i*.5rem !important)
+     .mx-#{$i}
+          +mx($i*.5rem !important)
+     .py-#{$i}
+          +py($i*.5rem !important)
+     .px-#{$i}
+          +px($i*.5rem !important)
+     .p-#{$i}
+          padding: $i*.5rem !important
+     .m-#{$i}
+          margin: $i*.5rem !important
+
+
+.bottom-right
+     position: absolute !important
+     right: 0
+     bottom: 0
+.top-right
+     position: absolute !important
+     right: 0
+     top: 0
+.to_top
+     display: none
+     position: fixed
+     outline: none
+     border: 1px solid #ccc
+     border-radius: 5rem
+     background: #fff
+     align-items: center
+     justify-content: center
+     right: 20px
+     bottom: 20px
+     z-index: 1
+     +size(50px)
+     box-shadow: 0 4px 4px 2px rgba(black,.09)
+     img
+          width: 20px
+     +respond-to-down(small)
+          display: flex
+
+.submenu_wrapper
+     padding-bottom: 0
+
+.side_menu
+     position: absolute
+     z-index: 10
+     +respond-to-down(medium)
+          display: none
+     +respond-to(medium)
+          right: calc((100% - 920px) / 2)
+     +respond-to(large)
+          right: calc((100% - 1000px) / 2)
+     transform: translateX(100%)
+     top: 60px
+     .title
+          text-align: center
+          font-size: 14px
+          padding: 10px
+          background: #f6f6f6
+          color: #4c4c4c
+          border: 1px solid #dcdcdc
+          border-bottom: 0
+     .recent_wrapper
+          background: #fff
+          padding: 10px
+          border: 1px solid #dcdcdc
+          .swiper-container
+               height: 230px
+     .close
+          position: absolute
+          right: 4px
+          top: 4px
+          +size(16px)
+          border-radius: 5rem
+          background-color: #000
+          background-position: center
+          background-repeat: no-repeat
+          outline: none
+          cursor: pointer
+          border: 0
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='8px' height='8px'%3E%3Cpath fill-rule='evenodd' fill='rgb(255, 255, 255)' d='M7.995,7.328 L7.329,7.993 L4.000,4.664 L0.671,7.993 L0.005,7.328 L3.335,3.999 L0.005,0.669 L0.671,0.004 L4.000,3.333 L7.329,0.004 L7.995,0.669 L4.665,3.999 L7.995,7.328 Z'/%3E%3C/svg%3E%0A")
+          opacity: .42
+     .custumer_wrapper
+          background: #fff
+          border: 1px solid #dcdcdc
+          margin-top: 10px
+          .shop
+               text-align: center
+               border-bottom: 1px solid #dcdcdc
+               padding: 12px 5px
+               img
+                    margin-bottom: 12px
+               p
+                    font-size: 14px
+               h4
+                    margin: 0
+                    font-size: 16px
+                    color: $primary
+                    font-weight: 400
+          .link
+               display: block
+               padding: 13px 8px
+               position: relative
+               border-bottom: 1px solid #dcdcdc
+               background: #f6f6f6
+               color: #666
+               font-size: 14px
+               &::after
+                    position: absolute
+                    content: ''
+                    +size(10px)
+                    border-bottom: 1px solid #888
+                    border-right: 1px solid #888
+                    top: 50%
+                    transform: translateY(-50%) rotate(-45deg)
+                    right: 10px
+          .deliver
+               padding: 12px 10px
+               text-align: center
+               position: relative
+               display: block
+               img
+                    margin-bottom: 12px
+               p
+                    text-align: left
+                    font-size: 14px
+                    color: #4c4c4c
+               &::after
+                    position: absolute
+                    content: ''
+                    +size(10px)
+                    border-bottom: 1px solid #888
+                    border-right: 1px solid #888
+                    top: 70%
+                    transform: rotate(-45deg)
+                    right: 10px
+     .go_top
+          margin-top: 12px
+          outline: none
+          border: 1px solid #dcdcdc
+          padding: 8px
+          font-size: 14px
+          background: #fff
+          width: 100%
+          cursor: pointer
+     &.fixed
+          position: fixed
+
+
+
+
+
+.hidden
+     display: none

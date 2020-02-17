@@ -1,0 +1,24 @@
+.paginination
+     display: flex
+     align-items: center
+     justify-content: center
+     +py(15px)
+     .page-link
+          display: inline-flex
+          align-items: center
+          justify-content: center
+          +size(30px)
+          text-align: center
+          line-height: 30px
+          color: #808080
+          font-size: 16px
+          &.active
+               color: $primary_text
+               font-weight: bold
+          &:hover
+               font-weight: bold
+          $pages: 'first','prev','next','last'
+          @each $page in $pages
+               &.#{$page}
+                    &::after
+                         content: url(../images/icons/page_#{$page}.svg)

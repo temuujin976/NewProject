@@ -1,0 +1,566 @@
+html, body
+     font-family: 'Sunflower', sans-serif
+     color: $default
+     font-size: 20px
+     +respond-to-down(small)
+          font-size: 16px
+p
+     line-height: 1.6
+     max-width: 50em
+button, input
+     font-size: 1rem
+     outline: none
+.wrap, .row, .tab-row
+     margin: 0 auto
+     max-width: 1000px
+.nav
+     position: fixed
+     z-index: 3
+     height: 70px
+     +py(5px)
+     width: 100%
+     transition: 300ms ease
+.brand
+     float: left
+     line-height: 60px
+     color: white
+     font-weight: 500
+     padding-left: 1rem
+.brand span
+     font-size: 38px
+     font-weight: 100
+     font-family: 'Nanum Pen Script', cursive
+.brand img
+     vertical-align: middle
+     height: calc(60px - 1rem)
+     margin-right: .5rem
+.top-menu
+     display: none
+     position: relative
+     float: right
+     transition: 200ms ease
+     font-weight: 300
+     height: 60px
+     +respond-to(medium)
+          display: block
+.top-menu li
+     display: block
+     float: left
+     height: 60px
+     ul.sub-menu
+          display: none
+     i
+          margin-right: 10px
+.top-menu li a
+     display: block
+     height: 60px
+     line-height: 60px
+     text-decoration: none
+     color: #fff
+     padding: 0 1em
+     font-family: 'Sunflower', sans-serif
+     font-size: 16px
+     font-weight: 500
+     +respond-to-down(medium)
+          color: #62757f
+          text-align: center
+          border-bottom: 1px solid #cfd8dc
+.top-menu li a:hover
+     background: -webkit-linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0))
+     background: -o-linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0))
+     background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0))
+.mobile-open
+     display: grid
+     background-color: #fff
+     width: 100%
+     height: auto
+.hamburger-btn
+     float: right
+     display: block
+     border: none
+     background: transparent
+     color: #fff
+     height: calc(60px - 1rem)
+     width: calc(60px - 1rem)
+     margin: 0.5rem 0.5rem 0 0
+     padding: 0
+     position: relative
+     +respond-to(medium)
+          display: none
+.hamburger-btn:hover
+     background: rgba(0, 0, 0, 0.1)
+.hamburger-btn .hamburger-line
+     height: 2px
+     width: calc(60px - 2rem)
+     background: #fff
+     display: block
+     position: absolute
+     left: calc(0.5rem - 1px)
+     transition: top 150ms ease-out 150ms, bottom 150ms ease-out 150ms, opacity 150ms ease 75ms, -webkit-transform 150ms ease-in
+     transition: transform 150ms ease-in, top 150ms ease-out 150ms, bottom 150ms ease-out 150ms, opacity 150ms ease 75ms
+     transition: transform 150ms ease-in, top 150ms ease-out 150ms, bottom 150ms ease-out 150ms, opacity 150ms ease 75ms, -webkit-transform 150ms ease-in
+.hamburger-btn .hamburger-line:first-child
+     top: 0.75rem
+.hamburger-btn .hamburger-line:nth-child(2)
+     top: calc(50% - 1px)
+.hamburger-btn .hamburger-line:last-child
+     bottom: 0.75rem
+.hamburger-cross .hamburger-line
+     transition: top 150ms ease-in, bottom 150ms ease-in, opacity 150ms ease 75ms, -webkit-transform 150ms ease-out 150ms
+     transition: transform 150ms ease-out 150ms, top 150ms ease-in, bottom 150ms ease-in, opacity 150ms ease 75ms
+     transition: transform 150ms ease-out 150ms, top 150ms ease-in, bottom 150ms ease-in, opacity 150ms ease 75ms, -webkit-transform 150ms ease-out 150ms
+.hamburger-cross .hamburger-line:first-child
+     -webkit-transform: rotate(45deg)
+     transform: rotate(45deg)
+     top: calc(50% - 1px)
+.hamburger-cross .hamburger-line:nth-child(2)
+     top: calc(50% - 1px)
+     opacity: 0
+.hamburger-cross .hamburger-line:last-child
+     -webkit-transform: rotate(-45deg)
+     transform: rotate(-45deg)
+     bottom: calc(50% - 1px)
+.scroll
+     background: white
+     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2)
+.scroll .top-menu li a, .scroll .brand
+     color: $main_text
+.scroll .hamburger-line
+     background: #000
+.hero
+     position: relative
+     z-index: 1
+     height: 100vh
+     // max-height: 1080px
+     background-image: url('../images/package/package (2).jpg')
+     background-size: cover
+     background-attachment: fixed
+     background-position: center
+     color: #fff
+     display: table
+     width: 100%
+     text-align: center
+     text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2)
+.hero:after
+     content: ""
+     position: absolute
+     top: 0
+     left: 0
+     right: 0
+     bottom: 0
+     background: -webkit-linear-gradient(top left, #494949, #494949)
+     background: -o-linear-gradient(top left, #494949, #494949)
+     background: linear-gradient(to bottom right, #494949, #494949)
+     opacity: 0.7
+     z-index: -1
+.hero h1
+     font-size: 4em
+     margin-bottom: 1rem
+.hero p
+     font-size: 5em
+     max-width: 80%
+     margin-left: auto
+     margin-right: auto
+     font-weight: 300
+     font-family: 'Nanum Pen Script', cursive
+     +respond-to-down(small)
+          font-size: 3em
+.hero .content
+     display: table-cell
+     vertical-align: middle
+h1, h2, p
+     margin: 1em 0
+h2
+     font-size: 2rem
+     line-height: 0.5
+a
+     color: #e14
+     text-decoration: none
+a:hover
+     text-decoration: underline
+.row:after, .tab-row:after
+     content: ""
+     display: table
+     clear: both
+.row, .tab-row
+     display: block
+.tab-row
+     display: table
+     height: auto
+     vertical-align: middle
+.main
+     background: #fff
+     width: 96%
+     +mx(auto)
+     margin-top: -60px
+     margin-bottom: -40px
+     border-radius: 10px
+     box-shadow: 0 16px 24px 2px rgba(0,0,0,0.14), 0 6px 30px 5px rgba(0,0,0,0.12), 0 8px 10px -5px rgba(0,0,0,0.2)
+     z-index: 1
+     // +respond-to-down(large)
+     //      margin: -60px 7px 0
+     // +respond-to-down(medium)
+     //      margin: -60px 15px 0
+     // +respond-to-down(small)
+     //      margin: -60px 7px 0
+.main .row, .main .tab-row
+     // min-height: 200px
+.main .row:before, .main .row:after, .main .tab-row:before, .main .tab-row:after
+     content: ''
+     display: table
+.main section
+     padding: 0 1rem
+     height: auto
+     border-radius: 6px 6px 6px 6px
+     padding-top: 50px
+     padding-bottom: 70px
+.feature-box-title
+     text-align: center
+     h2
+          font-size: 37px
+          color: #3C4858
+          +respond-to-down(small)
+               font-size: 28px
+.feature-box
+     display: inline-block
+     float: none !important
+     vertical-align: top
+     .henista-info
+          +py(70px)
+          max-width: 360px
+          transition: .3s ease
+          text-align: center
+          .icon
+               position: relative
+               i
+                    font-size: 61px
+                    &:hover
+                         color: #3C4858
+                         cursor: text
+                    +respond-to-down(small)
+                         font-size: 41px
+          h4
+               font-size: 18px
+               margin: 15px 0 5px
+               color: #3C4858
+               +respond-to-down(small)
+                    font-size: 16px
+          h5
+               font-size: 16px
+               color: #999
+               +my(5px)
+               +respond-to-down(small)
+                    font-size: 14px
+.feature
+     background-image: url('../images/package/package (4).jpg')
+     background-attachment: fixed
+     background-size: cover
+     background-position: center
+     position: relative
+     z-index: 1
+     color: #fff
+     text-align: center
+.feature:after
+     content: ""
+     position: absolute
+     top: 0
+     left: 0
+     right: 0
+     bottom: 0
+     background: -webkit-linear-gradient(top left, #494949, #1b1b1b)
+     background: -o-linear-gradient(top left, #494949, #1b1b1b)
+     background: linear-gradient(to bottom right, #494949, #1b1b1b)
+     opacity: 0.9
+     z-index: -1
+.feature_2
+     background-image: url('../images/package/package (1).jpg')
+     background-attachment: fixed
+     background-size: cover
+     background-position: center
+     position: relative
+     z-index: 1
+     color: #fff
+     text-align: center
+.feature_2:after
+     content: ""
+     position: absolute
+     top: 0
+     left: 0
+     right: 0
+     bottom: 0
+     background: -webkit-linear-gradient(top left, #1b1b1b, #494949)
+     background: -o-linear-gradient(top left, #1b1b1b, #494949)
+     background: linear-gradient(to bottom right, #1b1b1b, #494949)
+     opacity: 0.9
+     z-index: -1
+// .footer
+//      background: #75889b
+//      color: #ddd
+//      padding: 2rem
+// .footer li
+//      line-height: 1.5
+// .footer a
+//      color: #aaa
+// .footer hr
+//      max-width: 1000px
+//      border: 0
+//      height: 1px
+//      background: #a2aebb
+.col-4, .col-6, .col-12
+     width: 100%
+     +respond-to(medium)
+          float: left
+.tab-row > .col-4, .tab-row > .col-6, .tab-row > .col-12
+     display: table-cell
+     vertical-align: middle
+     height: 100%
+     float: none
+.columns_main
+     vertical-align: middle
+     margin: 0 auto
+     max-width: 1000px
+button.cta
+     padding: 0.75em 1.5em
+     background: white
+     color: $main_text
+     border: none
+     cursor: pointer
+     transition: 200ms ease
+     box-shadow: 0 1px 2px rgba(3, 3, 0, 0.2)
+     border-radius: 2px
+button.cta:hover
+     color: #e14
+     box-shadow: 0 0.25em 10px rgba(0, 0, 0, 0.2)
+.subscribe_row
+     // background: url('../images/package/package (6).jpg')
+     background-color: #373737
+     .container
+          +py(50px)
+          +respond-to-down(small)
+               +py(25px)
+          .row
+               min-height: 0
+     .col-12
+          display: flex
+          text-align: center
+          align-items: center
+          +respond-to-down(small)
+               display: block
+     .subs-info
+          text-align: center
+          +respond-to-down(small)
+               text-align: center
+          h3
+               font-size: 26px
+               font-weight: 500
+               color: #fff
+               +my(10px)
+          h5
+               font-size: 20px
+               font-weight: 400
+               color: #424242
+               +my(10px)
+     .mail-input
+          +respond-to(medium)
+               display: flex
+          input
+               width: 100%
+               height: 50px
+               +px(15px)
+               border: 2px solid $primary
+               border-radius: 10px
+               +respond-to(medium)
+                    margin-right: 10px
+          button
+               background-color: $primary
+               color: $main_text
+               font-weight: 700
+               border: 0
+               border-radius: 10px
+               +px(30px)
+               &:hover
+                    background-color: #c6a700
+                    cursor: pointer
+               +respond-to-down(medium)
+                    width: 100%
+                    height: 50px
+                    margin-top: 10px
+footer
+     .footer_title
+          font-family: 'Nanum Myeongjo', serif
+          h3
+               font-size: 24px
+               font-weight: 500
+          h5
+               font-size: 16px
+               font-weight: 300
+               padding-right: 10px
+          opacity: 0.7
+          +respond-to-down(small)
+               text-align: center
+     .footer_service
+          font-family: 'Nanum Myeongjo', serif
+          h3
+               font-size: 24px
+               font-weight: 500
+               +respond-to-down(small)
+                    margin-bottom: 5px
+          opacity: 0.7
+          div
+               +respond-to-down(small)
+                    display: inline-block
+               span
+                    display: flex
+                    align-items: center
+                    &:hover
+                         color: $primary
+                         opacity: 1
+                    i
+                         margin-right: 15px
+                         font-size: 12px
+                    h4
+                         +my(5px)
+                         font-size: 14px
+                         font-weight: 300
+          text-align: left
+          +respond-to-down(small)
+               text-align: center
+     .footer_license
+          +my(20px)
+          opacity: 0.7
+     .footer_address
+          h4
+               font-size: 14px
+               font-weight: 300
+               +my(2.5px)
+          .footer_addmapico
+               align-items: baseline
+          span
+               display: flex
+               align-items: center
+               i
+                    margin-right: 10px
+               &:hover
+                    color: $primary
+                    opacity: 1
+          opacity: 0.7
+.footer_bg
+     background-image: url('../images/package/package (1).jpg')
+     background-attachment: fixed
+     background-size: cover
+     background-position: center
+     position: relative
+     z-index: 0
+     color: #fff
+     padding-top: 70px
+     padding-bottom: 10px
+     .con_line
+          width: 100%
+          max-width: none
+          height: 1px
+          background-color: white
+          +my(30px)
+          opacity: 0.5
+     .footer_copyright
+          font-family: 'Sunflower', sans-serif
+          font-size: 16px
+          font-weight: 300
+          color: white
+          opacity: 0.7
+     .flex
+          +respond-to-down(small)
+               display: block
+.footer_bg:after
+     content: ""
+     position: absolute
+     top: 0
+     left: 0
+     right: 0
+     bottom: 0
+     background: -webkit-linear-gradient(top left, #1b1b1b, #00227b)
+     background: -o-linear-gradient(top left, #1b1b1b, #00227b)
+     background: linear-gradient(to bottom right, #1b1b1b, #00227b)
+     opacity: 0.9
+     z-index: -1
+
+.scroll-downs
+     position: absolute
+     right: 0
+     bottom: 130px
+     left: 0
+     margin: auto
+     width : 34px
+     height: 55px
+.mousey
+     width: 3px
+     padding: 10px 15px
+     height: 35px
+     border: 2px solid #fff
+     border-radius: 25px
+     opacity: 0.75
+     box-sizing: content-box
+.scroller
+     width: 3px
+     height: 10px
+     border-radius: 25%
+     background-color: #fff
+     animation-name: scroll
+     animation-duration: 2.2s
+     animation-timing-function: cubic-bezier(.15,.41,.69,.94)
+     animation-iteration-count: infinite
+@keyframes scroll
+     0%
+          opacity: 0
+     10%
+          transform: translateY(0)
+          opacity: 1
+     100%
+          transform: translateY(15px)
+          opacity: 0
+#top_button
+     display: inline-block
+     background-color: $default
+     color: $primary
+     width: 50px
+     height: 50px
+     text-align: center
+     border-radius: 4px
+     position: fixed
+     bottom: 30px
+     right: 50px
+     transition: background-color .3s
+          opacity: .5s
+          visibility: .5s
+     opacity: 0
+     visibility: hidden
+     z-index: 1000
+     i
+          font-size: 26px
+          margin-top: 12px
+          +respond-to-down(small)
+               font-size: 24px
+               margin-top: 3px
+     +respond-to-down(medium)
+          right: 30px
+     +respond-to-down(small)
+          right: 15px
+          width: 30px
+          height: 30px
+          font-size: 20px
+#top_button::after
+     content: ""
+     font-weight: normal
+     font-style: normal
+     font-size: 2em
+     line-height: 50px
+     +respond-to-down(small)
+          line-height: 27px
+#top_button:hover
+     cursor: pointer
+     background-color: $primary
+     color: $default
+#top_button:active
+     background-color: $default_hover
+#top_button.show
+     opacity: 1
+     visibility: visible

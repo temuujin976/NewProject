@@ -1,0 +1,48 @@
+*,::before,::after
+     box-sizing: border-box
+html,body
+     margin: 0
+     padding: 0
+     text-rendering: geometricPrecision
+     position: relative
+img
+     border: none
+body
+     font-family: 'Spoqa Han Sans', sans-serif
+     font-size: 16px
+     font-style: normal
+     font-weight: 400
+     line-height: 1.6
+     color: $main-text
+     background-color: #fff
+     word-break: keep-all
+     letter-spacing: -0.01em
+p
+     margin-top: 0
+     margin-bottom: 0
+     // +respond-to-down(small)
+     //      font-size: 14px
+ol:not(.default), ul:not(.default)
+     list-style: none
+     padding-left: 0
+     +my(0)
+a
+     text-decoration: none
+     color: inherit
+     &:hover
+          cursor: pointer
+button, input, select, textarea
+     margin: 0
+     font: inherit
+hr
+     -webkit-box-sizing: content-box
+     box-sizing: content-box
+     height: 0
+     overflow: visible
+table
+     border-collapse: collapse
+     border-spacing: 0
+.list-inside
+     list-style-position: inside
+.list-square
+     list-style-type: square

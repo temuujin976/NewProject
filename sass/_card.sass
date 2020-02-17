@@ -1,0 +1,79 @@
+
+.card
+     height: 100%
+     display: flex
+     flex-direction: column
+     &:hover
+          .img-wrapper
+               img
+                    //transform: scale(1.1)
+                    width: 110%
+.img-wrapper
+     position: relative
+     line-height: 0
+     width: 100%
+     padding-top: 100%
+     overflow: hidden
+     &.wide
+          padding-top: 80%
+     img
+          transition: all .3s ease-in
+          +img-center
+.content-wrapper
+     padding-top: 6px
+     flex: 1
+     display: flex
+     flex-direction: column
+     justify-content: space-between
+     font-size: 18px
+     letter-spacing: -0.01em
+     line-height: 1.66666
+     h5
+          margin: 0
+          font-weight: 400
+          color: #999
+          font-size: 14px
+          span:first-child
+               margin-right: 6px
+               padding-right: 6px
+               position: relative
+               &::after
+                    width: 1px
+                    height: 14px
+                    display: inline-block
+                    right: 0
+                    position: absolute
+                    +center_v
+                    content: ''
+                    background: #999
+.product
+     &-title
+          color: #4c4c4c
+[data-badge]
+     position: relative
+     &::after,&::before
+          position: absolute
+          top: 0
+          left: 0
+          border-radius: 0 0 5rem 5rem
+          z-index: 1
+     &::before
+          width: 60px
+          height: 54px
+          background: $primary
+          border-radius: 0 0 5rem 5rem
+          content: ''
+     &::after
+          width: 52px
+          left: 4px
+          height: 50px
+          content: attr(data-badge)
+          color: #fff
+          text-transform: uppercase
+          font-size: 16px
+          text-align: center
+          display: flex
+          align-items: center
+          justify-content: center
+          border: 1px dashed white
+          border-top: 0
