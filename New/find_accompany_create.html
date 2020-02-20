@@ -25,6 +25,8 @@
      <script type="text/javascript" src="../js/jquery/jquery.validate.min.js"></script>
      <script type="text/javascript" src="../js/jquery/additional-methods.min.js"></script>
      <script type="text/javascript" src="../js/jquery/messages_ko.min.js"></script>
+
+     <script src="https://cdn.ckeditor.com/ckeditor5/16.0.0/classic/ckeditor.js"></script>
 </head>
 
 <body>
@@ -51,7 +53,7 @@
                     <li><a href="#">여행정보 & 서비스</a></li>
                     <li><a href="../New/package.html">여행상품</a></li>
                     <li><a href="../New/find_accompany.html">동행</a></li>
-                    <li><a href="#">여행이야기</a></li>
+                    <li><a href="../New/story.html">여행이야기</a></li>
                     <li><a href="../New/contact.html">문의</a></li>
                </ul>
           </div>
@@ -133,7 +135,12 @@
                               <div class="row find_textarea">
                     				<div class="col-12 flex" style="align-items: baseline;">
                     						<label class="col-3" for="content">내용</label>
-                    						<textarea class="col-9" name="content" type="textarea" placeholder="내용을 입력해주세요."></textarea>
+                    						<!-- <textarea class="col-9" name="content" type="textarea" placeholder="내용을 입력해주세요."></textarea> -->
+                                                  <div class="col-9" style="padding: 0;">
+                                                       <div id="editor">내용을 입력해주세요.</div>
+                                                  </div>
+
+
                     				</div>
                     		</div>
                               <div class="row">
@@ -262,7 +269,16 @@ $("#form").validate({
 });
 });
 </script>
-
+<script>
+        ClassicEditor
+                .create( document.querySelector( '#editor' ) )
+                .then( editor => {
+                        console.log( editor );
+                } )
+                .catch( error => {
+                        console.error( error );
+                } );
+</script>
 
 <script type="text/javascript">
 var menuId = $("#menu");

@@ -4,7 +4,7 @@
 <head>
      <meta charset="utf-8">
      <meta http-equiv="x-ua-compatible" content="ie=edge">
-     <title>BUNNY TOUR</title>
+     <title>BUNNY TOUR - 여행이야기 & 후기</title>
      <meta name="description" content="">
      <meta name="viewport" content="width=device-width, initial-scale=1">
      <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
@@ -21,6 +21,11 @@
      <script async defer crossorigin="anonymous" src="https://connect.facebook.net/mn_MN/sdk.js#xfbml=1&version=v5.0"></script>
      <link href="https://fonts.googleapis.com/css?family=Hi+Melody|Nanum+Myeongjo|Nanum+Pen+Script|Sunflower:300&display=swap" rel="stylesheet">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+     <script type="text/javascript" src="../js/jquery/jquery.validate.min.js"></script>
+     <script type="text/javascript" src="../js/jquery/additional-methods.min.js"></script>
+     <script type="text/javascript" src="../js/jquery/messages_ko.min.js"></script>
+     <script src="https://cdn.ckeditor.com/ckeditor5/16.0.0/classic/ckeditor.js"></script>
 </head>
 
 <body>
@@ -58,74 +63,64 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="bradcam_text text-center">
-                        <h3>여행상품</h3>
-                        <p>Package</p>
+                         <h3>여행이야기 & 후기</h3>
+                         <p>Story & Reviews</p>
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <main class="main package_desc_main">
-         <section class="container package_desc_head">
-               <div class="row col-sm-12 desc_table">
-                    <div class="table">
-                         <div class="subject col-sm-12">
-                              <span class="">
-                                   제목
-                              </span>
-                              <p>
-                                   Garchig
-                              </p>
-                         </div>
-                         <div class="" style="border-bottom: 1px solid;">
-                              <div class="view col-4">
-                                   <span>
-                                        조회수
-                                   </span>
-                                   <p>
-                                        35
-                                   </p>
-                              </div>
-                              <div class="date col-8">
-                                   <span>
-                                        작성일
-                                   </span>
-                                   <p>
-                                        2020-02-11
-                                   </p>
-                              </div>
-                         </div>
-                    </div>
-               </div>
-               <div class="row package_description">
+    <main class="main">
+         <section class="container story_create">
+               <div class="row">
                     <div class="col-sm-12">
-                          <img src="../images/description/cara (1).jpg" alt="">
-                          <img src="../images/description/cara (2).jpg" alt="">
-                          <img src="../images/description/cara (3).jpg" alt="">
+                         <h3>
+                              우리의 추억
+                         </h3>
+                         <!-- <div class="col-sm-12 cho_rad">
+                              <label>
+                                   <input type="radio" class="radio" checked name="radio" value="">
+                                   <span>직접입력</span>
+                              </label>
+                              <label>
+                                   <input type="radio" class="radio"  name="radio" value="">
+                                   <span>선택입력</span>
+                              </label>
+                         </div> -->
+                         <form class="form" id="form">
+                              <div class="row fa_subject">
+                                        <div class="col-12 flex">
+                                                  <label class="col-3" for="subject">제목</label>
+                                                  <input class="col-9" name="subject" type="text" placeholder="제목을 입력해주세요." autofocus />
+                                        </div>
+                              </div>
+                    		<div class="row">
+                    				<div class="col-12 flex" style="flex-wrap: nowrap; !important">
+                    						<label class="col-3" for="date">날짜</label>
+                    						<input class="col-9 form-control" id="toYmd" name="date" type="date" disabled placeholder="일정을 선택해주세요." autofocus/>
+                    				</div>
+                              </div>
+                    		<div class="row">
+                    				<div class="col-12 flex">
+                    						<label class="col-3" for="tag">#태그</label>
+                    						<input class="col-9" name="tag" type="text" placeholder="예: #몽골 #여행 #테를지 #울란바타르" />
+                    				</div>
+                    		</div>
+                              <div class="row find_textarea">
+                    				<div class="col-12 flex" style="align-items: baseline;">
+                    						<label class="col-3" for="content">내용</label>
+                    						<!-- <textarea class="col-9" name="content" type="textarea" placeholder="내용을 입력해주세요."></textarea> -->
+                                                  <div class="col-9" style="padding: 0;">
+                                                       <div id="editor">내용을 입력해주세요.</div>
+                                                  </div>
+
+
+                    				</div>
+                    		</div>
+                              <button class="button" type="submit" name="button">글 등록</button>
+                         </form>
                     </div>
-               </div>
-               <div class="row col-sm-12 package_desc_table">
-                    <div class="table">
-                         <div class="subject col-sm-12">
-                              <span class="">
-                                   다음 글
-                              </span>
-                              <p>
-                                   Garchig
-                              </p>
-                         </div>
-                         <div class="col-sm-12"  style="border-bottom: 1px solid;">
-                              <span class="">
-                                   이전 글
-                              </span>
-                              <p>
-                                   Garchig
-                              </p>
-                         </div>
-                    </div>
-                    <br>
-                    <button id="submit_btn" type="submit" class="col-sm-12">목록</button>
                </div>
          </section>
          <a id="top_button">
@@ -209,6 +204,64 @@
 
 
 </body>
+
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function() {
+
+  // 브라우저의 현재 날짜를 받아온다.
+
+  var toDay = new Date();
+  document.getElementById("toYmd").value = toDay.yyyymmdd();
+});
+
+// 현재 날짜값을 yyyy-mm-dd 형식으로 변환해주는 함수
+Date.prototype.yyyymmdd = function() {
+   var yyyy = this.getFullYear().toString();
+   var mm = (this.getMonth() + 1).toString();
+   var dd = this.getDate().toString();
+   return  yyyy + "-" + (mm[1] ? mm : "0" + mm[0]) + "-" + (dd[1] ? dd : "0" + dd[0]);
+}
+</script>
+
+<script type="text/javascript">
+$(function() {
+$("#form").validate({
+   rules: {
+       message: "required",
+       subject: "required",
+       destination: "required",
+       total_member: "required",
+       find_member: "required",
+       style: "required",
+       content: "required",
+       status1: "required",
+   },
+   messages: {
+       name: "이름을 입력해주세요.",
+       email: {
+            required: "이메일을 입력해주세요.",
+            email: "올바른 이메일을 입력해주세요."
+       },
+       message: "문의사항을 입력해주세요.",
+       subject: "제목을 입력해주세요.",
+   },
+   submitHandler: function(form) {
+      $(".message").show();
+      $(".message").fadeOut(1500);
+   }
+});
+});
+</script>
+<script>
+        ClassicEditor
+                .create( document.querySelector( '#editor' ) )
+                .then( editor => {
+                        console.log( editor );
+                } )
+                .catch( error => {
+                        console.error( error );
+                } );
+</script>
 
 <script type="text/javascript">
 var menuId = $("#menu");
